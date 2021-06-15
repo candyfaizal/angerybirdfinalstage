@@ -95,7 +95,7 @@ function keyPressed(){
        var responseJSON = await response.json();
        var datetime = responseJSON.datetime;
        var hour = datetime.slice(11,13)
-       if(hour>6&&hour<=19)
+       if(hour>6&&hour<19)
        {
            bg = loadImage("sprites/bg.png")
        }
