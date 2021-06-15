@@ -10,6 +10,7 @@ var bird, slingshot;
 var bg
 
 var gameState = "onSling";
+var score=0
 
 function preload() {
      getbackgroundimg()
@@ -48,6 +49,8 @@ function setup(){
 function draw(){
     if(bg)
     background(bg);
+    textSize(25)
+    text("score"+score,1100,20)
     Engine.update(engine);
     //strokeWeight(4);
     box1.display();
@@ -86,7 +89,10 @@ function mouseReleased(){
 function keyPressed(){
     if(keyCode === 32){
     slingshot.attach(bird.body);
+    bird.trajectory=[]
     }
+    Matter.Body.setPosition(bird.body,{x:200,y:50})
+    gameState="onSling"
 }
 
    async function getbackgroundimg()
